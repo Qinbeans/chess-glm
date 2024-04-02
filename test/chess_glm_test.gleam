@@ -1,5 +1,4 @@
 import gleeunit
-import gleeunit/should
 import chess_glm.{start_server}
 import gleam/http/request
 import gleam/http/response

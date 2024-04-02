@@ -9,13 +9,6 @@ Reimplementation of my [chess-htmx](https://github.com/Qinbeans/chess-htmx) proj
 ```sh
 gleam add chess_glm
 ```
-```gleam
-import chess_glm
-
-pub fn main() {
-  // TODO: An example of the project in use
-}
-```
 
 Further documentation can be found at <https://hexdocs.pm/chess_glm>.
 

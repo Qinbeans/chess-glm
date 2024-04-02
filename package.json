@@ -1,0 +1,10 @@
+{
+	"scripts": {
+		"build": "rm -rf dist/* && tailwindcss build -i app.css -o dist/assets/styles/app.css -m && gleam export erlang-shipment && mv build/erlang-shipment dist",
+		"dev": "tailwindcss build -i app.css -o assets/styles/app.css -m && gleam run",
+		"update-deps": "git pull --recurse-submodules"
+	},
+	"devDependencies": {
+		"tailwindcss": "^3.4.3"
+	}
+}
