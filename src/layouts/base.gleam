@@ -1,5 +1,5 @@
 import types/html.{
-  type Html, body, component, div, footer, head, html, meta, script, style,
+  type Html, body, component, div, footer, head, html, link, meta, script, style,
   title,
 }
 import types/id.{Id}
@@ -30,6 +30,11 @@ pub fn base(current: String, is_component: Bool, children: String) -> Html {
             meta("viewport", "width=device-width, initial-scale=1"),
             title("Hello, Gleam!"),
             script("https://unpkg.com/htmx.org@1.9.11"),
+            link(
+              "icon",
+              "https://ajawtrubycbmbqfwkiyw.supabase.co/storage/v1/object/public/pub_imgs/chess-htmx/favicon.webp",
+              [],
+            ),
             style("/assets/styles/app.css"),
           ])
           <> body(
