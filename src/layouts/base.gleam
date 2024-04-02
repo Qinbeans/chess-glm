@@ -1,5 +1,5 @@
 import types/html.{
-  type Html, Component, body, div, footer, head, html, meta, script, style,
+  type Html, body, component, div, footer, head, html, meta, script, style,
   title,
 }
 import types/id.{Id}
@@ -22,7 +22,7 @@ pub fn base(current: String, is_component: Bool, children: String) -> Html {
     navbar.new("Somewhere", "/somewhere"),
   ]
   case is_component {
-    True -> Component(header_component(current, nav_list) <> children)
+    True -> component(header_component(current, nav_list) <> children)
     False ->
       html(
         "en",

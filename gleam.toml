@@ -23,3 +23,12 @@ gleam_httpc = "~> 2.2"
 
 [dev-dependencies]
 gleeunit = "~> 1.0"
+
+[documentation]
+links = [
+    { title = "Repository", href = "https://github.com/Qinbeans/chess_glm" },
+    { title = "Mist", href = "https://github.com/rawhat/mist" },
+    { title = "Mist Docs", href = "https://hexdocs.pm/mist/" },
+    { title = "html-dsl", href = "https://github.com/Qinbeans/html-dsl" },
+    { title = "html-dsl Docs", href = "https://qinbeans.github.io/html-dsl/" }
+]

@@ -2,7 +2,8 @@
 	"scripts": {
 		"build": "rm -rf dist/* && tailwindcss build -i app.css -o dist/assets/styles/app.css -m && gleam export erlang-shipment && mv build/erlang-shipment dist",
 		"dev": "tailwindcss build -i app.css -o assets/styles/app.css -m && gleam run",
-		"update-deps": "git pull --recurse-submodules"
+		"update-deps": "git pull --recurse-submodules",
+		"build:docs": "rm -rf docs && gleam docs build && mv build/dev/docs/chess_glm docs"
 	},
 	"devDependencies": {
 		"tailwindcss": "^3.4.3"
