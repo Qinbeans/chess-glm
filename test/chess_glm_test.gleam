@@ -3,6 +3,7 @@ import chess_glm.{start_server}
 import gleam/http/request
 import gleam/http/response
 import gleam/httpc
+import gleam/http
 
 pub fn main() {
   // start the server
@@ -13,6 +14,7 @@ pub fn main() {
 // test the clickme endpoint
 pub fn clickme_test() {
   let assert Ok(req) = request.to("http://localhost:3000/clickme")
+  let req = request.set_method(req, http.Post)
   let assert Ok(resp) = httpc.send(req)
   let assert 200 = resp.status
   let assert Ok("text/plain") = response.get_header(resp, "Content-Type")
