@@ -7,7 +7,7 @@ links = [
     { title = "html-dsl Docs", href = "https://qinbeans.github.io/html-dsl/" }
 ]
 
-repository = { type = "github", user = "Qinbeans", repo = "chess_glm" }
+repository = { type = "github", user = "Qinbeans", repo = "chess-glm" }
 
 # Fill out these fields if you intend to generate HTML documentation or publish
 # your project to the Hex package manager.
