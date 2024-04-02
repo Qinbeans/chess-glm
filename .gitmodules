@@ -1,0 +1,3 @@
+[submodule "dependencies/html-dsl"]
+	path = dependencies/html-dsl
+	url = https://github.com/Qinbeans/html-dsl.git
