@@ -12,6 +12,11 @@ import gleam/http/response.{type Response}
 import mist.{type Connection, type ResponseData}
 
 pub fn main() {
+  let _ = start_server()
+  process.sleep_forever()
+}
+
+pub fn start_server() {
   let assert Ok(_) =
     fn(req: Request(Connection)) -> Response(ResponseData) {
       case request.to_uri(req).path {
@@ -30,7 +35,6 @@ pub fn main() {
     |> mist.new
     |> mist.port(3000)
     |> mist.start_http
-  process.sleep_forever()
 }
 
 fn render_not_found(_: Request(Connection)) -> Response(ResponseData) {

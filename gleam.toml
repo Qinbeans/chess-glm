@@ -19,6 +19,7 @@ gleam_erlang = "~> 0.25"
 gleam_http = "~> 3.6"
 gleam_otp = "~> 0.10"
 html_dsl = { path = "dependencies/html-dsl" }
+gleam_httpc = "~> 2.2"
 
 [dev-dependencies]
 gleeunit = "~> 1.0"
