@@ -1,5 +1,13 @@
 name = "chess_glm"
 version = "1.0.0"
+links = [
+    { title = "Mist", href = "https://github.com/rawhat/mist" },
+    { title = "Mist Docs", href = "https://hexdocs.pm/mist/" },
+    { title = "html-dsl", href = "https://github.com/Qinbeans/html-dsl" },
+    { title = "html-dsl Docs", href = "https://qinbeans.github.io/html-dsl/" }
+]
+
+repository = { type = "github", user = "Qinbeans", repo = "chess_glm" }
 
 # Fill out these fields if you intend to generate HTML documentation or publish
 # your project to the Hex package manager.
@@ -23,12 +31,3 @@ gleam_httpc = "~> 2.2"
 
 [dev-dependencies]
 gleeunit = "~> 1.0"
-
-[documentation]
-links = [
-    { title = "Repository", href = "https://github.com/Qinbeans/chess_glm" },
-    { title = "Mist", href = "https://github.com/rawhat/mist" },
-    { title = "Mist Docs", href = "https://hexdocs.pm/mist/" },
-    { title = "html-dsl", href = "https://github.com/Qinbeans/html-dsl" },
-    { title = "html-dsl Docs", href = "https://qinbeans.github.io/html-dsl/" }
-]
