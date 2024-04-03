@@ -16,7 +16,12 @@ Further documentation can be found at <https://qinbeans.github.io/chess-glm/>.
 ## Development
 
 ```sh
-gleam run   # Run the project
-gleam test  # Run the tests
-gleam shell # Run an Erlang shell
+gleam run       # Run the project
+gleam test      # Run the tests
+gleam shell     # Run an Erlang shell
+
+# some project specific commands
+pnpm dev        # Run the development server with live reload
+pnpm build      # Build the project
+pnpm build:docs # Run the tests
 ```
