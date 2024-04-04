@@ -23,5 +23,4 @@ gleam shell     # Run an Erlang shell
 # some project specific commands
 pnpm dev        # Run the development server with live reload
 pnpm build      # Build the project
-pnpm build:docs # Run the tests
 ```
