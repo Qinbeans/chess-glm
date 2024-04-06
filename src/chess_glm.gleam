@@ -8,6 +8,7 @@ import routes/somewhere
 import routes/not_found
 import routes/static
 import gleam/http
+import request as local_request
 
 pub fn main() {
   let _ = start_server()
@@ -23,18 +24,7 @@ pub fn start_server() {
 }
 
 fn router(req: Request(Connection)) -> Response(ResponseData) {
-  let method = case req.method {
-    http.Get -> "GET"
-    http.Post -> "POST"
-    http.Head -> "HEAD"
-    http.Put -> "PUT"
-    http.Delete -> "DELETE"
-    http.Trace -> "TRACE"
-    http.Connect -> "CONNECT"
-    http.Options -> "OPTIONS"
-    http.Patch -> "PATCH"
-    _ -> "UNKNOWN"
-  }
+  let method = local_request(req)
   case [request.to_uri(req).path, method] {
     ["/", "GET"] -> index.render(req)
     ["/somewhere", "GET"] -> somewhere.render(req)
