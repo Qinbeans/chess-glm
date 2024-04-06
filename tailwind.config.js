@@ -1,7 +1,7 @@
 /** @type {import('tailwindcss').Config} */
 module.exports = {
   content: {
-    files: ['./src/routes/**/*.gleam', './src/components/**/*.gleam', './src/layouts/**/*.gleam'],
+    files: ['./src/chess_glm/routes/**/*.gleam', './src/chess_glm/components/**/*.gleam', './src/chess_glm/layouts/**/*.gleam'],
   },
   theme: {
     extend: {},

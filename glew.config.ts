@@ -8,6 +8,6 @@ export const config: GlewConfig = {
         "app.css"
     ],
     cmds: [
-        "pnpm tailwind -i app.css -o assets/styles/app.css",
+        "pnpm tailwind -i app.css -o assets/styles/app.css -m",
     ],
 }

@@ -67,30 +67,58 @@ const runCommands = () => {
     prerun()
 }
 
-const prerun = () => {
-    if (processes_finished < config.cmds.length) {
-        setTimeout(prerun, 100)
-        return
-    }
+// takes in some function
+const kill = (func: () => void) => {
     if (is_running) {
-        console.debug(`<${C.M}Kill${C.C}> performing \`${config.kill}\``)
         if (pid === -1) {
             console.error(`<${C.R}Error${C.C}> No running process to kill`)
             return
         }
         // replace $run_pid with the pid of the running process
-        const kill = config.kill.replace('$run_pid', pid.toString())
+        if (process.platform === 'win32') {
+            console.debug(`<${C.M}Kill${C.C}> performing \`${config.kill.windows}\``)
+            // get child processes of the running process
+            const tasklist = `wmic process where (ParentProcessId=${pid}) get ProcessId`
+            exec(tasklist, (err, stdout, _stderr) => {
+                if (err) {
+                    console.error(`<${C.R}Error${C.C}> ${err}`)
+                    return
+                }
+                const pid = stdout.split('\n').slice(1).filter(Boolean)[0]
+                console.debug(`<${C.M}Kill${C.C}>\tChild: ${pid}`)
+                const kill = config.kill.windows.replace('$run_pid', pid.trim())
+                exec(kill, (err, _stdout, _stderr) => {
+                    if (err) {
+                        console.error(`<${C.R}Error${C.C}> ${err}`)
+                        return
+                    }
+                    console.debug(`<${C.G}Success${C.C}> \`${config.kill}\` has been executed`)
+                })
+                func()
+            })
+            return
+        }
+        console.debug(`<${C.M}Kill${C.C}> performing \`${config.kill.unix}\``)
+        const kill = config.kill.unix.replace('$run_pid', pid.toString())
         exec(kill, (err, _stdout, _stderr) => {
             if (err) {
                 console.error(`<${C.R}Error${C.C}> ${err}`)
                 return
             }
             console.debug(`<${C.G}Success${C.C}> \`${config.kill}\` has been executed`)
-            run()
+            func()
         })
     } else {
-        run()
+        func()
     }
+}
+
+const prerun = () => {
+    if (processes_finished < config.cmds.length) {
+        setTimeout(prerun, 100)
+        return
+    }
+    kill(run)
 }
 
 const run = () => {
@@ -100,7 +128,8 @@ const run = () => {
     }
     is_running = true
     const [command, ...args] = config.run.split(/\s+/);
-    const gleam = spawn(command, args, { stdio: 'inherit' })
+    // block stdin but allow stdout and stderr to be inherited
+    const gleam = spawn(command, args, { stdio: ['ignore', 'inherit', 'inherit'] })
     if (!gleam.pid) {
         console.error(`<${C.R}Error${C.C}> Failed to start \`${config.run}\``)
         process.exit(1)
@@ -131,6 +160,19 @@ watcher
 })
 .on('unlink', path => {
     console.log(`<${C.B}Info${C.C}> ${path} has been removed`)
+})
+
+// intercept SIGINT and SIGTERM signals
+process.on('SIGINT', () => {
+    console.log(`<${C.M}Stop${C.C}> Watcher is stopping`)
+    if (is_running) {
+        kill(() => {
+            watcher.close()
+            process.exit(0)
+        })
+    }
+    watcher.close()
+    process.exit(0)
 })
 
 checkTools()

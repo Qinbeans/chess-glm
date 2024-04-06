@@ -3,7 +3,7 @@ import gleam/http/request.{type Request}
 import gleam/http/response.{type Response}
 import gleam/string
 import gleam/list
-import routes/not_found
+import chess_glm/routes/not_found
 import gleam/option.{None}
 import gleam/result
 import gleam/io

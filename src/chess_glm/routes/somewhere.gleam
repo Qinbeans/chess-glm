@@ -1,11 +1,11 @@
 import mist.{type Connection, type ResponseData}
 import gleam/http/request.{type Request}
 import gleam/http/response.{type Response}
-import layouts/base
+import chess_glm/layouts/base
 import types/html.{Attribute, br, button}
 import types/id.{Id}
 import types/class.{Class}
-import mist_dsl/engine
+import chess_glm/mist_dsl/engine
 
 /// Render the page
 pub fn render(req: Request(Connection)) -> Response(ResponseData) {
@@ -17,6 +17,7 @@ pub fn render(req: Request(Connection)) -> Response(ResponseData) {
   |> base.base(
     current,
     _,
+    "This is somewhere!",
     "You are somewhere!"
       <> br()
       <> button(

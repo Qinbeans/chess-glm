@@ -7,7 +7,10 @@ export interface GlewConfig {
     watch: string[]
     cmds: string[]
     run: string
-    kill: string
+    kill: {
+        unix: string
+        windows: string
+    }
     ignore?: RegExp // Optional: ignores regex pattern
 }
 
@@ -26,6 +29,9 @@ export const DefaultGlewConfig: GlewConfig = {
         "gleam build",
     ],
     run: "gleam run",
-    kill: "kill $(pgrep -P $run_pid)",
+    kill: {
+        unix: "kill $(pgrep -P $run_pid)",
+        windows: "taskkill /F /PID $run_pid",
+    },
     ignore: /(^|[\/\\])\../ // Ignores hidden files
 }

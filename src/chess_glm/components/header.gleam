@@ -3,7 +3,7 @@ import types/id.{Id}
 import types/class.{Class}
 import gleam/list
 import gleam/string
-import components/navbar.{type NavBar}
+import chess_glm/components/navbar.{type NavBar}
 
 /// A header component that takes a list of `NavBar` items and the current page
 ///  - `@param` current: the current page
