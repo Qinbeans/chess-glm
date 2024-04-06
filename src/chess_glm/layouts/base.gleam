@@ -1,6 +1,6 @@
 import types/html.{
-  type Html, body, component, div, footer, head, html, link, meta, script, style,
-  title, charset
+  type Html, body, charset, component, div, footer, head, html, link, meta,
+  script, style, title,
 }
 import types/id.{Id}
 import types/class.{Class}
