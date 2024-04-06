@@ -1,6 +1,6 @@
 import types/html.{
   type Html, body, component, div, footer, head, html, link, meta, script, style,
-  title,
+  title, charset
 }
 import types/id.{Id}
 import types/class.{Class}
@@ -34,7 +34,7 @@ pub fn base(
         head([
             meta("viewport", "width=device-width, initial-scale=1"),
             meta("description", description),
-            "<meta charset='utf-8'>",
+            charset("utf-8"),
             title("Hello, Gleam!"),
             script("https://unpkg.com/htmx.org@1.9.11"),
             link(
