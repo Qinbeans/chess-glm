@@ -1,9 +1,9 @@
-import types/html.{
+import html_dsl/types/html.{
   type Html, body, charset, component, div, footer, head, html, link, meta,
   script, style, title,
 }
-import types/id.{Id}
-import types/class.{Class}
+import html_dsl/types/id.{Id}
+import html_dsl/types/class.{Class}
 import chess_glm/components/navbar
 import chess_glm/components/header.{header_component}
 

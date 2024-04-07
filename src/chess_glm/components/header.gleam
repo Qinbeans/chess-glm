@@ -1,6 +1,6 @@
-import types/html.{a, div, header, nav, span}
-import types/id.{Id}
-import types/class.{Class}
+import html_dsl/types/html.{a, div, header, nav, span}
+import html_dsl/types/id.{Id}
+import html_dsl/types/class.{Class}
 import gleam/list
 import gleam/string
 import chess_glm/components/navbar.{type NavBar}

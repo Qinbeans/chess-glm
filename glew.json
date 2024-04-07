@@ -1,0 +1,15 @@
+{
+    "watch": [
+        "src/**/*.gleam",
+        "app.css"
+    ],
+    "cmds": [
+        "pnpm tailwind -i app.css -o assets/styles/app.css -m"
+    ],
+    "run": "gleam run",
+    "kill": {
+        "unix": "kill $(pgrep -P $run_pid)",
+        "windows": "taskkill /F /PID $run_pid"
+    },
+    "ignore": {}
+}

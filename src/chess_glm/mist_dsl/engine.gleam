@@ -1,5 +1,5 @@
 import gleam/bytes_builder
-import types/html.{type Html, html_to_string}
+import html_dsl/types/html.{type Html, html_to_string}
 import mist.{type ResponseData}
 import gleam/http/response.{type Response}
 

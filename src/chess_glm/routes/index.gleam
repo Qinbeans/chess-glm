@@ -2,9 +2,9 @@ import mist.{type Connection, type ResponseData}
 import gleam/http/request.{type Request}
 import gleam/http/response.{type Response}
 import chess_glm/layouts/base
-import types/html.{Attribute, br, button, div}
-import types/id.{Id}
-import types/class.{Class}
+import html_dsl/types/html.{Attribute, br, button, div}
+import html_dsl/types/id.{Id}
+import html_dsl/types/class.{Class}
 import chess_glm/mist_dsl/engine
 
 /// Renders the page for index
