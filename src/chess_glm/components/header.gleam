@@ -26,7 +26,7 @@ pub fn header_component(current: String, nav_list: List(NavBar)) -> String {
       div(
         id.Nil,
         Class(
-          "col-start-2 flex flex-row justify-center items-center gap-4 py-2",
+          "col-start-2 flex flex-row justify-center items-center gap-4 py-2 text-center",
         ),
         [],
         nav_list
@@ -38,7 +38,7 @@ pub fn header_component(current: String, nav_list: List(NavBar)) -> String {
                 span(
                   id.Nil,
                   Class(
-                    "bg-blue-500/15 rounded-xl border-white border px-2 py-1",
+                    "bg-blue-500/15 rounded-xl border-purple-600 bg-purple-300 border px-2 py-1 w-32 text-gray-800",
                   ),
                   [],
                   name,
@@ -47,7 +47,7 @@ pub fn header_component(current: String, nav_list: List(NavBar)) -> String {
                 a(
                   id.Nil,
                   Class(
-                    "hover:bg-gray-500 rounded-xl border-white border px-2 py-1",
+                    "hover:bg-purple-400 rounded-xl border-purple-600 bg-purple-500 border px-2 py-1 w-32 transition duration-300 ease-in-out",
                   ),
                   url,
                   [],

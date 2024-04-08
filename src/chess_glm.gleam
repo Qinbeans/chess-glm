@@ -7,6 +7,7 @@ pub fn main() {
   process.sleep_forever()
 }
 
+/// Main entry point
 pub fn start_server() {
   let assert Ok(_) =
     router
