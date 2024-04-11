@@ -13,6 +13,10 @@ gleam add chess_glm
 
 Further documentation can be found at <https://qinbeans.github.io/chess-glm/>.
 
+## Quirks
+
+You might notice I use `attribute.new()` instead of `class(None,...)` There's a good reason for that, and it honestly is for Tailwind.
+
 ## Development
 
 ```sh
